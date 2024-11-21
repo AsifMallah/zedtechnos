@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>ZedTechnos</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="index-page">
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <h1 class="sitename">ZedTechnos</h1>
+    </a>
+    <nav id="navmenu" class="navmenu">
+         <ul>
+        <li><a href="index.html" class="active">Back to Home</a></li>
+        </ul>
+
+
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>
+  <main>
+    <div class="billing-payment-container">
+      <form class="billing-payment-form" action="payment-process.php" method="POST">
+        
+        <!-- Service Details Section -->
+        <div class="service-details">
+          <h3 class="section-title">Order Details</h3>
+          <p>Service: <span id="service-name"></span></p>
+          <p>Price: $<span id="service-price"></span></p>
+          <!-- Hidden inputs to pass values to the backend -->
+          <input type="hidden" name="service" id="hidden-service">
+          <input type="hidden" name="price" id="hidden-price">
+        </div>
+
+        <!-- Billing Section -->
+        <div class="billing-section">
+          <h3 class="section-title">Billing Address</h3>
+          <div class="input-field">
+            <label>Full Name:</label>
+            <input type="text" name="full_name" placeholder="Jacob Aiden" required>
+          </div>
+          <div class="input-field">
+            <label>Email:</label>
+            <input type="email" name="email" placeholder="example@example.com" required>
+          </div>
+          <div class="input-field">
+            <label>Address:</label>
+            <input type="text" name="address" placeholder="Room - Street - Locality" required>
+          </div>
+          <div class="input-field">
+            <label>City:</label>
+            <input type="text" name="city" placeholder="Berlin" required>
+          </div>
+          <div class="input-row">
+            <div class="input-field">
+              <label>State:</label>
+              <input type="text" name="state" placeholder="Germany" required>
+            </div>
+            <div class="input-field">
+              <label>Zip Code:</label>
+              <input type="number" name="zip" placeholder="123456" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+          <h3 class="section-title">Payment</h3>
+          <div class="input-field">
+            <label>Cards Accepted:</label>
+            <img src="assets/img/imgcards.png" alt="Accepted Cards">
+          </div>
+          <div class="input-field">
+            <label>Name On Card:</label>
+            <input type="text" name="cardholder_name" placeholder="Mr. Jacob Aiden" required>
+          </div>
+          <div class="input-field">
+            <label>Credit Card Number:</label>
+            <input type="number" name="card_number" placeholder="1111 2222 3333 4444" required>
+          </div>
+          <div class="input-field">
+            <label>Exp. Month:</label>
+            <input type="text" name="exp_month" placeholder="August" required>
+          </div>
+          <div class="input-row">
+            <div class="input-field">
+              <label>Exp. Year:</label>
+              <input type="number" name="exp_year" placeholder="2025" required>
+            </div>
+            <div class="input-field">
+              <label>CVV:</label>
+              <input type="number" name="cvv" placeholder="123" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Extract service name and price from query parameters
+    const params = new URLSearchParams(window.location.search);
+    const serviceName = params.get("service") || "Not Selected";
+    const servicePrice = params.get("price") || "0.00";
+
+    // Update the page with the service details
+    document.getElementById("service-name").textContent = serviceName;
+    document.getElementById("service-price").textContent = servicePrice;
+
+    // Populate hidden input fields for form submission
+    document.getElementById("hidden-service").value = serviceName;
+    document.getElementById("hidden-price").value = servicePrice;
+  </script>
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">ZedTechnos</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Travessa do North No 3</p>
+            <p>Carvalhal, Portugal</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+3 5196 31762 68</span></p>
+            <p><strong>NIPC:</strong> <span>518125009</span></p>
+            <p><strong>Email:</strong> <span>Info@zedtechsolution.com</span><br><span>Customercare@zedtechsolution.com</span></p>
+            <p><strong>Company Name:</strong> <span>PLATEIA BULIÇOSA, UNIPESSOAL LDA.</span></p>
+          </div>
+        </div>
+
+         <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">About us</a></li>
+            <li><a href="index.html">Services</a></li>
+            <li><a href="index.html">Terms of service</a></li>
+            <li><a href="index.html">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="index.html">Web Design</a></li>
+            <li><a href="index.html">Web Development</a></li>
+            <li><a href="index.html">Product Management</a></li>
+            <li><a href="index.html">Marketing</a></li>
+            <li><a href="index.html">Graphic Design</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
