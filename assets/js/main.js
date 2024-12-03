@@ -215,3 +215,28 @@
 
 
 
+document.getElementById('accept-all').addEventListener('click', function() {
+    // Save consent and hide banner
+    document.cookie = "cookieConsent=true; path=/; max-age=" + 60 * 60 * 24 * 365;
+    document.getElementById('cookie-banner').style.display = 'none';
+  });
+
+  // You can add further logic for the "Customize" button here
+
+
+
+function toggleADRContent() {
+  const content = document.getElementById("adr-content");
+  const button = document.getElementById("adr-toggle-btn");
+
+  if (content.classList.contains("adr-collapsed")) {
+    content.classList.remove("adr-collapsed");
+    content.classList.add("adr-expanded");
+    button.textContent = "Show Less";
+  } else {
+    content.classList.remove("adr-expanded");
+    content.classList.add("adr-collapsed");
+    button.textContent = "Read More";
+  }
+}
+

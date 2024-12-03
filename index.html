@@ -45,6 +45,16 @@
         <h1 class="sitename">ZedTech</h1>
       </a>
 
+  <!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner">
+  <p>We use cookies to improve your browsing experience and analyze our traffic. By clicking "Accept All", you agree to our use of cookies. For more details, see our Cookie Policy.</p>
+  <div class="cookie-buttons">
+    <button id="accept-all" class="cookie-btn">Accept All</button>
+    <a href="cookie-policy.html" target="_blank" class="cookie-btn">Read More</a>
+  </div>
+</div>
+
+
 
   <!-- Navigation Menu -->
   <nav id="navmenu" class="navmenu">
@@ -312,20 +322,7 @@ Let us enhance your operations with user-friendly solutions.</p>
           </div>
         </div><!-- Features Item -->
 
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-            <img src="assets/img/details-3.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7" data-aos="fade-up">
-            <h3>Cybersecurity Services</h3>
-            <p>Protect Your Business with Advanced Cybersecurity Solutions.</p>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>We provide 24/7 surveillance of your systems to quickly identify and mitigate potential threats before they escalate</span></li>
-              <li><i class="bi bi-check"></i><span> In the event of a breach, our dedicated team springs into action, minimizing damage and restoring your operations as quickly as possible.</span></li>
-              <li><i class="bi bi-check"></i> <span>We implement robust security protocols to protect sensitive data, ensuring your business meets all regulatory compliance requirements.</span>.</li>
-            </ul>
-          </div>
-        </div><!-- Features Item -->
+
 
         <div class="row gy-4 align-items-center features-item">
           <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out">
@@ -342,6 +339,75 @@ Let us enhance your operations with user-friendly solutions.</p>
             <p>Cloud Infrastructure Optimization: Our experts optimize your cloud environment to improve performance, reduce costs, and enhance scalability, ensuring your cloud resources are used efficiently.</p>
           </div>
         </div><!-- Features Item -->
+
+
+        <!-- Features Item -->
+        
+<div class="row gy-4 align-items-center features-item">
+  <!-- Image Section -->
+  <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+    <img src="assets/img/details-5.jpg" class="img-fluid" alt="ADR Image">
+  </div>
+
+  <!-- Content Section -->
+  <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+    <h3>Alternative Dispute Resolution (ADR)</h3>
+    <p class="fst-italic">
+      At <strong>PLATEIA BULIÇOSA, UNIPESSOAL LDA.</strong>, we are committed to resolving any disputes that may arise in connection with our services in a fair and effective manner.
+    </p>
+
+    <!-- Collapsible Content -->
+    <div id="adr-content" class="adr-collapsed">
+      <p>
+        We participate in the following Alternative Dispute Resolution (ADR) entities:
+      </p>
+        <p>
+        <strong>Centro Nacional de Informação e Arbitragem de Conflitos de Consumo (CNIACC)</strong></p>
+          <p>Website: <a href="https://www.arbitragemdeconsumo.org/" target="_blank">www.arbitragemdeconsumo.org</a><br>
+          Phone: +351 21 384 74 84</p>
+
+          <strong>Centro de Informação de Consumo e Arbitragem do Porto (CICAP)</strong><br>
+          Website: <a href="https://www.cicap.pt/" target="_blank">www.cicap.pt</a><br>
+          Phone: +351 22 550 83 49
+        </li>
+      </ul>
+      <p>
+        If you are a consumer and wish to address a dispute, you may contact one of the entities listed above or use the European Commission's Online Dispute Resolution (ODR) platform, available at <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.
+      </p>
+      <p>
+        For additional assistance, feel free to contact us directly:
+      </p>
+      <ul>
+        <li><strong>Address:</strong> Travessa do North No 31, Carvalhal, Portugal</li>
+        <li><strong>Phone:</strong> +351 96 31762 68</li>
+        <li><strong>Email:</strong> <a href="mailto:Info@zedtechsolution.com">Info@zedtechsolution.com</a>, <a href="mailto:Customercare@zedtechsolution.com">Customercare@zedtechsolution.com</a></li>
+      </ul>
+    </div>
+    
+    <!-- Read More / Show Less Button -->
+    <button id="adr-toggle-btn" onclick="toggleADRContent()">Read More</button>
+  </div>
+</div><!-- Features Item -->
+
+
+ <script>
+    function toggleADRContent() {
+      const content = document.getElementById("adr-content");
+      const button = document.getElementById("adr-toggle-btn");
+
+      if (content.classList.contains("adr-collapsed")) {
+        content.classList.remove("adr-collapsed");
+        content.classList.add("adr-expanded");
+        button.textContent = "Show Less";
+      } else {
+        content.classList.remove("adr-expanded");
+        content.classList.add("adr-collapsed");
+        button.textContent = "Read More";
+      }
+    }
+  </script>
+
+        <!-- Features Item -->
 
       </div>
 
@@ -641,14 +707,27 @@ Let us enhance your operations with user-friendly solutions.</p>
 
     </section><!-- /Faq Section -->
 
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <div><span>Check Our</span> <span class="description-title">Contact</span></div>
-      </div><!-- End Section Title -->
+   <!-- Section Title -->
+
+<div class="container section-title" data-aos="fade-up">
+  <p>If you have any queries or complaints, you can fill out the <a href="#contact-form">Contact Us Form</a> or directly submit them through our <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank">Electronic Complaints Book</a>. The Electronic Complaints Book ensures that your concerns are officially recorded for a prompt and secure resolution.</p>
+  <h2>Contact</h2>
+  <div>
+    <span>Check Our</span> <span class="description-title">Contact</span>
+  </div>
+</div>
+
+
+
+
+<!-- End Section Title -->
+
+
+
 
       <div class="container" data-aos="fade" data-aos-delay="100">
 
@@ -659,7 +738,7 @@ Let us enhance your operations with user-friendly solutions.</p>
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>Travessa do North No 3 , 6230-801 Carvalhal, Portugal.</p>
+                <p>Travessa do North No 31, 6230-801 Carvalhal, Portugal.</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -799,7 +878,7 @@ function handleForm(event) {
             <span class="sitename">ZedTech</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>Travessa do North No 3 , 6230-801 </p>
+            <p>Travessa do North No 31, 6230-801 </p>
             <p>Carvalhal, Portugal</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+3 5196 31762 68</span></p>
             <p><strong>NIPC:</strong> <span>518125009
