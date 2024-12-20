@@ -473,13 +473,14 @@ Let us enhance your operations with user-friendly solutions.</p>
       </section>
       <!-- /Team Section -->
 
-<!-- Pricing Section -->
-<section id="process" class="#">
+<section id="process" class="process-section">
+  <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>Pricing</h2>
     <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
   </div>
 
+  <!-- Pricing Section -->
   <div class="container pricing">
     <div class="row">
       <!-- Graphic Designing Section -->
@@ -489,51 +490,51 @@ Let us enhance your operations with user-friendly solutions.</p>
           <h3>Graphic Designing</h3>
           <p class="description" style="color: #2A3663;">We design your imagination according to your vision</p>
           <div class="menu">
-            <select id="graphic-designing-name" class="service-select">
-              <option value="Branding" data-price="250">Branding</option>
+            <select class="service-select" data-service="graphic-designing" aria-label="Select Graphic Designing Service">
+              <option value="Branding" data-price="250" selected>Branding</option>
               <option value="Logo" data-price="100">Logo Design</option>
               <option value="Package" data-price="399">Package Design</option>
             </select>
           </div>
-          <h4><sup>$</sup><span id="graphic-designing-price" style="color: #2A3663;">250</span></h4>
-          <a href="#" data-service="graphic-designing" class="cta-btn proceed-to-pay">Proceed To Pay</a>
+          <h4><sup>$</sup><span class="price" style="color: #2A3663;">250</span></h4>
+          <button class="cta-btn proceed-to-pay" data-service="graphic-designing" aria-label="Proceed to pay for Graphic Designing">Proceed To Pay</button>
           <p style="color: #2A3663;" class="small">Easy & trusted process</p>
         </div>
       </div>
-
-      <!-- More service sections here... -->
-
     </div>
   </div>
 
+  <!-- JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     $(document).ready(function () {
-      $(".proceed-to-pay").on("click", function (e) {
+      // Update price dynamically based on selection
+      $(".service-select").on("change", function () {
+        const selectedOption = $(this).find("option:selected");
+        const price = selectedOption.data("price");
+        $(this).closest(".pricing-item").find(".price").text(price);
+      });
+
+      // Initialize price on page load for all sections
+      $(".service-select").each(function () {
+        const selectedOption = $(this).find("option:selected");
+        const price = selectedOption.data("price");
+        $(this).closest(".pricing-item").find(".price").text(price);
+      });
+
+      // Proceed to pay button handler
+      $(document).on("click", ".proceed-to-pay", function (e) {
         e.preventDefault();
         const pricingItem = $(this).closest(".pricing-item");
         const serviceSelect = pricingItem.find(".service-select");
         const serviceName = serviceSelect.find("option:selected").val();
         const servicePrice = serviceSelect.find("option:selected").data("price");
 
-        // Prepare data for POST request
-        const postData = {
-          service: serviceName,
-          price: servicePrice
-        };
+        // Construct checkout URL correctly
+        const checkoutUrl = `https://zed-tech-ce34a4ffd212.herokuapp.com/checkout?service=${encodeURIComponent(serviceName)}&price=${encodeURIComponent(servicePrice)}`;
 
-        // Send data to Heroku /checkout endpoint
-        $.post("/checkout", postData, function (response) {
-          if (response.redirectUrl) {
-            // Redirect to Mollie checkout
-            window.location.href = response.redirectUrl;
-          } else {
-            alert('Error occurred during checkout. Please try again.');
-          }
-        }).fail(function (error) {
-          console.error('Error:', error);
-          alert('An error occurred while processing your request. Please try again later.');
-        });
+        // Redirect to the checkout page
+        window.location.href = checkoutUrl;
       });
     });
   </script>
