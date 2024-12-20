@@ -473,71 +473,152 @@ Let us enhance your operations with user-friendly solutions.</p>
       </section>
       <!-- /Team Section -->
 
-<section id="process" class="process-section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Pricing</h2>
-    <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
-  </div>
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+  <h2>Pricing</h2>
+  <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
+</div>
 
-  <!-- Pricing Section -->
-  <div class="container pricing">
-    <div class="row">
-      <!-- Graphic Designing Section -->
-      <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="pricing-item">
-          <img src="assets/img/lo4.png" class="img-fluid img-resized" alt="Graphic Designing">
-          <h3>Graphic Designing</h3>
-          <p class="description" style="color: #2A3663;">We design your imagination according to your vision</p>
-          <div class="menu">
-            <select class="service-select" data-service="graphic-designing" aria-label="Select Graphic Designing Service">
-              <option value="Branding" data-price="250" selected>Branding</option>
-              <option value="Logo" data-price="100">Logo Design</option>
-              <option value="Package" data-price="399">Package Design</option>
-            </select>
-          </div>
-          <h4><sup>$</sup><span class="price" style="color: #2A3663;">250</span></h4>
-          <button class="cta-btn proceed-to-pay" data-service="graphic-designing" aria-label="Proceed to pay for Graphic Designing">Proceed To Pay</button>
-          <p style="color: #2A3663;" class="small">Easy & trusted process</p>
+<!-- Pricing Section -->
+<div class="container pricing">
+  <div class="row">
+    <!-- Graphic Designing Section -->
+    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+      <div class="pricing-item">
+        <img src="assets/img/lo4.png" class="img-fluid img-resized" alt="Graphic Designing">
+        <h3>Graphic Designing</h3>
+        <p class="description" style="color: #2A3663;">We design your imagination according to your vision</p>
+        <div class="menu">
+          <select class="service-select" data-service="Graphic Designing">
+            <option value="Branding" data-price="250">Branding</option>
+            <option value="Logo Design" data-price="100">Logo Design</option>
+            <option value="Package Design" data-price="399">Package Design</option>
+          </select>
         </div>
+        <h4><sup>$</sup><span class="service-price" style="color: #2A3663;">250</span></h4>
+        <a href="#" class="cta-btn proceed-to-pay">Proceed To Pay</a>
+        <p style="color: #2A3663;" class="small">Easy & trusted process</p>
+      </div>
+    </div>
+
+    <!-- Web Development Section -->
+    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+      <div class="pricing-item">
+        <img src="assets/img/lo5.png" class="img-fluid img-resized" alt="Web Development">
+        <h3>Web Development</h3>
+        <p style="color: #2A3663;">Custom Web Development Services Built Around You</p>
+        <div class="menu">
+          <select class="service-select" data-service="Web Development">
+            <option value="API Integration" data-price="399">API Integration</option>
+            <option value="Mobile App Development" data-price="2000">Mobile App Development</option>
+            <option value="Custom CMS Development" data-price="2499">Custom CMS Development</option>
+            <option value="Front-End Development" data-price="999">Front-End Development</option>
+            <option value="Back-End Web Solutions" data-price="1499">Back-End Web Solutions</option>
+          </select>
+        </div>
+        <h4><sup>$</sup><span class="service-price" style="color: #2A3663;">399</span></h4>
+        <a href="#" class="cta-btn proceed-to-pay">Proceed To Pay</a>
+        <p style="color: #2A3663;" class="small">Easy & trusted process</p>
+      </div>
+    </div>
+
+    <!-- Cyber Security Section -->
+    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+      <div class="pricing-item">
+        <img src="assets/img/cyber-security.png" class="img-fluid img-resized" alt="Cyber Security">
+        <h3>Cyber Security</h3>
+        <p style="color: #2A3663;">Network, Cloud, and Application Security Services</p>
+        <div class="menu">
+          <select class="service-select" data-service="Cyber Security">
+            <option value="Network Security" data-price="499">Network Security</option>
+            <option value="Cloud Security" data-price="999">Cloud Security</option>
+            <option value="Application Security" data-price="199">Application Security</option>
+          </select>
+        </div>
+        <h4><sup>$</sup><span class="service-price" style="color: #2A3663;">499</span></h4>
+        <a href="#" class="cta-btn proceed-to-pay">Proceed To Pay</a>
+        <p style="color: #2A3663;" class="small">Easy & trusted process</p>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      // Update price dynamically based on selection
-      $(".service-select").on("change", function () {
-        const selectedOption = $(this).find("option:selected");
-        const price = selectedOption.data("price");
-        $(this).closest(".pricing-item").find(".price").text(price);
-      });
+  <div class="row">
+    <!-- Cloud Computing Section -->
+    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+      <div class="pricing-item">
+        <img src="assets/img/lo6.png" class="img-fluid img-resized" alt="Cloud Computing">
+        <h3>Cloud Computing</h3>
+        <p style="color: #2A3663;">Cloud Migration and Optimization Services</p>
+        <div class="menu">
+          <select class="service-select" data-service="Cloud Computing">
+            <option value="Software as a Service (SaaS)" data-price="149">SaaS</option>
+            <option value="Platform as a Service (PaaS)" data-price="99">PaaS</option>
+            <option value="Infrastructure as a Service (IaaS)" data-price="99">IaaS</option>
+            <option value="Function as a Service (FaaS)" data-price="149">FaaS</option>
+          </select>
+        </div>
+        <h4><sup>$</sup><span class="service-price" style="color: #2A3663;">149</span></h4>
+        <a href="#" class="cta-btn proceed-to-pay">Proceed To Pay</a>
+        <p style="color: #2A3663;" class="small">Easy & trusted process</p>
+      </div>
+    </div>
 
-      // Initialize price on page load for all sections
-      $(".service-select").each(function () {
-        const selectedOption = $(this).find("option:selected");
-        const price = selectedOption.data("price");
-        $(this).closest(".pricing-item").find(".price").text(price);
-      });
+    <!-- SEO Section -->
+    <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="500">
+      <div class="pricing-item">
+        <img src="assets/img/seo.png" class="img-fluid img-resized" alt="SEO">
+        <h3>SEO</h3>
+        <p style="color: #2A3663;">Search Engine Optimization</p>
+        <div class="menu">
+          <select class="service-select" data-service="SEO">
+            <option value="Deep Audit & Analysis" data-price="199">Audit</option>
+            <option value="Content Writing" data-price="99">Content</option>
+            <option value="In-Depth Keyword Research" data-price="299">Keyword</option>
+            <option value="Complete On-Page SEO" data-price="249">On-Page SEO</option>
+          </select>
+        </div>
+        <h4><sup>$</sup><span class="service-price" style="color: #2A3663;">199</span></h4>
+        <a href="#" class="cta-btn proceed-to-pay">Proceed To Pay</a>
+        <p style="color: #2A3663;" class="small">Easy & trusted process</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-      // Proceed to pay button handler
-      $(document).on("click", ".proceed-to-pay", function (e) {
-        e.preventDefault();
-        const pricingItem = $(this).closest(".pricing-item");
-        const serviceSelect = pricingItem.find(".service-select");
-        const serviceName = serviceSelect.find("option:selected").val();
-        const servicePrice = serviceSelect.find("option:selected").data("price");
-
-        // Construct checkout URL correctly
-        const checkoutUrl = `https://zed-tech-ce34a4ffd212.herokuapp.com/checkout?service=${encodeURIComponent(serviceName)}&price=${encodeURIComponent(servicePrice)}`;
-
-        // Redirect to the checkout page
-        window.location.href = checkoutUrl;
-      });
+<!-- JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Update price dynamically based on selection
+    $(".service-select").on("change", function () {
+      const selectedOption = $(this).find("option:selected");
+      const price = selectedOption.data("price");
+      $(this).closest(".pricing-item").find(".price").text(price);
     });
-  </script>
+
+    // Initialize price on page load for all sections
+    $(".service-select").each(function () {
+      const selectedOption = $(this).find("option:selected");
+      const price = selectedOption.data("price");
+      $(this).closest(".pricing-item").find(".price").text(price);
+    });
+
+    // Proceed to pay button handler
+    $(document).on("click", ".proceed-to-pay", function (e) {
+      e.preventDefault();
+      const pricingItem = $(this).closest(".pricing-item");
+      const serviceSelect = pricingItem.find(".service-select");
+      const serviceName = serviceSelect.find("option:selected").val();
+      const servicePrice = serviceSelect.find("option:selected").data("price");
+
+      // Construct checkout URL correctly
+      const checkoutUrl = `https://zed-tech-ce34a4ffd212.herokuapp.com/checkout?service=${encodeURIComponent(serviceName)}&price=${encodeURIComponent(servicePrice)}`;
+
+      // Redirect to the checkout page
+      window.location.href = checkoutUrl;
+    });
+  });
+</script>
 </section>
 
 
