@@ -585,42 +585,96 @@ Let us enhance your operations with user-friendly solutions.</p>
   </div>
 </div>
 
+
 <!-- JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-  $(document).ready(function () {
-    // Update price dynamically based on selection
-    $(".service-select").on("change", function () {
-      const selectedOption = $(this).find("option:selected");
-      const price = selectedOption.data("price");
-      $(this).closest(".pricing-item").find(".price").text(price);
-    });
+$(document).ready(function () {
+  // Function to update price and service details
+  function updatePriceAndService($select) {
+    const $pricingItem = $select.closest('.pricing-item');
+    const selectedOption = $select.find('option:selected');
+    const price = selectedOption.data('price');
+    const serviceName = selectedOption.val();
+    const serviceCategory = $select.data('service');
 
-    // Initialize price on page load for all sections
-    $(".service-select").each(function () {
-      const selectedOption = $(this).find("option:selected");
-      const price = selectedOption.data("price");
-      $(this).closest(".pricing-item").find(".price").text(price);
-    });
+    // Update price display
+    $pricingItem.find('.service-price').text(price);
 
-    // Proceed to pay button handler
-    $(document).on("click", ".proceed-to-pay", function (e) {
-      e.preventDefault();
-      const pricingItem = $(this).closest(".pricing-item");
-      const serviceSelect = pricingItem.find(".service-select");
-      const serviceName = serviceSelect.find("option:selected").val();
-      const servicePrice = serviceSelect.find("option:selected").data("price");
+    // Optional: Add visual feedback
+    $pricingItem.find('.service-price')
+      .css('transition', 'color 0.3s ease')
+      .css('color', '#FF6B6B')
+      .delay(300)
+      .queue(function(next) {
+        $(this).css('color', '#2A3663');
+        next();
+      });
+  }
 
-      // Construct checkout URL correctly
-      const checkoutUrl = `https://zed-tech-ce34a4ffd212.herokuapp.com/checkout?service=${encodeURIComponent(serviceName)}&price=${encodeURIComponent(servicePrice)}`;
-
-      // Redirect to the checkout page
-      window.location.href = checkoutUrl;
-    });
+  // Update price dynamically based on selection
+  $(".service-select").on("change", function () {
+    updatePriceAndService($(this));
   });
-</script>
-</section>
 
+  // Initialize prices on page load
+  $(".service-select").each(function () {
+    updatePriceAndService($(this));
+  });
+
+  // Proceed to pay button handler
+  $(document).on("click", ".proceed-to-pay", function (e) {
+    e.preventDefault();
+    
+    // Get the closest pricing item
+    const $pricingItem = $(this).closest(".pricing-item");
+    
+    // Find the service select within this pricing item
+    const $serviceSelect = $pricingItem.find(".service-select");
+    
+    // Get selected service details
+    const selectedOption = $serviceSelect.find("option:selected");
+    const serviceName = selectedOption.val();
+    const servicePrice = selectedOption.data("price");
+    const serviceCategory = $serviceSelect.data("service");
+
+    // Construct checkout URL with additional parameters
+    const checkoutUrl = `https://zed-tech-ce34a4ffd212.herokuapp.com/checkout?service=${encodeURIComponent(serviceName)}&price=${encodeURIComponent(servicePrice)}&category=${encodeURIComponent(serviceCategory)}`;
+
+    // Debugging logs
+    console.log('Checkout Details:', {
+      serviceName: serviceName,
+      servicePrice: servicePrice,
+      serviceCategory: serviceCategory,
+      checkoutUrl: checkoutUrl
+    });
+
+    // Redirect to the checkout page
+    window.location.href = checkoutUrl;
+  });
+
+  // Error handling for price updates
+  $(".service-select").on("change", function() {
+    const price = $(this).find("option:selected").data("price");
+    
+    if (!price) {
+      console.error("Price not found for selected option", {
+        service: $(this).find("option:selected").val(),
+        element: this
+      });
+      
+      // Optional: Show user-friendly error message
+      alert("Unable to retrieve pricing. Please try again.");
+    }
+  });
+
+  // Performance and accessibility enhancement
+  $(".service-select").each(function() {
+    // Add aria-label for better accessibility
+    $(this).attr('aria-label', `Select ${$(this).data('service')} service`);
+  });
+});
+</script>
 
 
     <!-- Faq Section -->

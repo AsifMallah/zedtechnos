@@ -1902,3 +1902,16 @@ body {
   background-color: #0026ff;
 }
 
+
+.service-price {
+  transition: color 0.5s ease;
+}
+
+.proceed-to-pay {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.proceed-to-pay:hover {
+  background-color: #2A3663;
+  color: white;
+}
